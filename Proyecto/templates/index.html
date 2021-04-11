@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>Tarea 1</title>
+    <div class="topnav">
+      <h2 class="active" href="#home">Home</h2>
+    </div>
+  </head>
+  <body>
+    {% block cuerpo %}
+    <header>
+    </header>
+      <div class="title">
+        <h1> BREAKING BAD</h1>
+        <div>
+          {%for n in temporadas_bb%}
+          <ul>
+            <li>
+              <a href="{%url 'episodes_bb' n%}"> Temporada {{n}}</a>          
+            </li>
+          </ul>
+          {% endfor%}
+        </div>
+      </div>
+      <div class="title">
+        <h1> BETTER CALL SAUL</h1>
+        <div>
+          {%for n in temporadas_bcs%}
+          <ul>
+            <li>
+              <a href="{%url 'episodes_bcs' n%}"> Temporada {{n}}</a>    
+            </li>
+          </ul>
+          {% endfor%}
+        </div>
+      </div>
+      {% endblock cuerpo %}
+  </body>
+</html>

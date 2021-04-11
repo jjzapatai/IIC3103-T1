@@ -1,0 +1,13 @@
+<div class="title">
+  <h1> BETTER CALL SAUL</h1>
+  <div>
+    <h3>Temporada {{numero_temporada}}</h3>
+    {%for episode in episodes%}
+    <ul>
+      <li>
+        <a href="{%url 'show_episode' episode.episode_id%}">{{episode.title}}</a>  
+      </li>
+    </ul>
+    {% endfor%}
+  </div>
+</div>

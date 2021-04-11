@@ -1,0 +1,16 @@
+<div class="title">
+  <h2>Episodio {{episode.episode}}  {{episode.title}}</h2>
+  <div>
+    <p>Temporada {{episode.season}}</p>
+    <p>Fecha lanzamiento: {{episode.air_date}}</p>
+    <p>Personajes</p>
+    {%for character in episode.characters%}
+    <ul>
+      <li>
+        <a href=""> {{character}}</a>
+      </li>
+    </ul>
+    {% endfor%}
+    <p>Series: {{episode.series}}</p>
+  </div>
+</div>
