@@ -15,13 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from api.views import inicio, show_bb, show_bcs, show_episode
+from api.views import inicio, show_bb, show_bcs, show_episode, show_character
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', inicio, name ='index'),
     path('episodes_bb<int:n>', show_bb, name='episodes_bb'),
     path('detail_episode<int:id>', show_episode, name='show_episode'),
-    path('episodes_bcs<int:n>', show_bcs, name='episodes_bcs')
+    path('episodes_bcs<int:n>', show_bcs, name='episodes_bcs'),
+    path('show_character<str:name>', show_character, name='show_character')
 ]
     # path('episodes_bcs/<int:id>', show_bcs, name='episodes_bcs'),

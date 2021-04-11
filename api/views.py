@@ -68,15 +68,41 @@ def show_episode(request, id):
   for episode in data:
     if int(episode['episode_id'])==int(id):
       detail = episode
-  
+
   ctx ={
     'episode':detail
   }
   return render(request, 'detail_episode.html', ctx)
 
 
+def show_character(request, name):
+  print("obteniendo info de "+ name)
+  URL = 'https://tarea-1-breaking-bad.herokuapp.com/api/characters?name='+ name
+  data = generate_request(URL)
 
+  URL_quotes = 'https://tarea-1-breaking-bad.herokuapp.com/api/quote?author='+ name
+  data_quotes = generate_request(URL_quotes)
 
+  for char in data:
+    if char['name']==name:
+      detail = char
 
+  quotes = []
+  for q in data_quotes:
+    if q['author'] == name:
+      quotes.append(q)
 
-    
+  print(quotes)
+  print(len(quotes))
+
+  bb = [int(i) for i in detail['appearance']]
+  bcs = [int(i) for i in detail['better_call_saul_appearance']]
+
+  ctx = {
+    'character': detail,
+    'bb_appearance':bb,
+    'bcs_appearance':bcs,
+    'quotes':quotes
+  }
+  return render(request, 'characters.html', ctx)
+

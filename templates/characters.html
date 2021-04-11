@@ -1,0 +1,56 @@
+<divc lass= "navbar">
+  <div class="topnav">
+    <a class="active" href="{%url 'index' %}">Home</a>
+  </div>
+    <div class="search">
+      <label for="name">Search</label>
+      <input type="text" placeholder="Buscar Personaje" value="" >
+  </div>
+</div>
+<div class="title">
+  <img src="{{character.img}}" alt="" width="230" height="270">
+  <h2>{{character.name}}</h2>
+  <div>
+    <p>Nickname: {{character.nickname}}</p>
+    <p>Status: {{character.status}}</p>
+    <p>Actor: {{character.portrayed}}</p>
+    <p>Roles:</p> 
+    {%for rol in character.occupation%}
+    <ul>
+      <li>
+        <a >{{rol}}</a>  
+      </li>
+    </ul>
+    {% endfor%}
+    <p>Temporadas Breaking Bad:</p>
+    {%for n in bb_appearance%}
+    <ul>
+      <li>
+        <a href="{%url 'episodes_bb' n%}">{{n}}</a>  
+      </li>
+    </ul>
+    {% endfor%}
+    <p>Temporadas Better Call Saul:</p>
+    {%for n in bcs_appearance%}
+    <ul>
+      <li>
+        <a href="{%url 'episodes_bcs' n%}">{{n}}</a>  
+      </li>
+    </ul>
+    {% endfor%}
+
+    <p>CHAR ID:{{character.char_id}}</p>
+
+    <h4>Frases típicas de {{character.name}}:</h4>
+    {%for quote in quotes%}
+    <ul>
+      <li>
+        <p> {{quote.quote}} </p>  
+      </li>
+    </ul>
+    {% endfor%}
+  </div>
+
+  <button type="button"></button>
+
+</div>
