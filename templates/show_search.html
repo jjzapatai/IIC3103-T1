@@ -1,12 +1,17 @@
-<divc lass= "navbar">
-  <div class="topnav">
-    <a class="active" href="{%url 'index' %}">Home</a>
+<header>
+  <divc lass= "navbar">
+    <div class="topnav">
+      <a class="active" href="{%url 'index' %}">Home</a>
+    </div>
+      <div class="search">
+        <form method=POST action="{%url 'search_results' %}"> 
+          {% csrf_token %}
+          <input name="value" type="search" placeholder="Buscar Personaje">
+          <button type='submit'> Buscar</button>
+        </form>
+    </div>
   </div>
-    <div class="search">
-      <label for="name">Search</label>
-      <input type="text" placeholder="Buscar Personaje" value="" >
-  </div>
-</div>
+</header>
 <div class="title">
   <h2> Resultados de la búsqueda</h2>
   <div>
