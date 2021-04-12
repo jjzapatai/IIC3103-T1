@@ -1,3 +1,83 @@
+<style>
+  html, body { margin:0; padding: 0;}
+  header {
+    position: sticky;
+    top: 0;
+    background-color: black;
+    color:  rgb(126, 167, 121);
+    
+    height: 80px;
+  }
+  header a:link { color: white; text-decoration: none
+  }
+  header a:visited { color: #fffefe; text-decoration: none
+  }
+  header a:hover { color: rgb(126, 167, 121); text-decoration: none
+  }
+  header a:active { color: #fffefe; text-decoration: none
+  }
+  header a {
+    font-size: 12px;
+  }
+  header.navbar{
+    display: flex;
+  }
+  header.topnav{
+    float: left;
+  }
+  header.search{
+    float:right;
+    align-self: right;
+  }
+
+  body {background-color: rgb(126, 167, 121);
+    font-family: 'calibri';}
+
+  .topnav a {
+    text-align: center;
+    padding: 14px 16px;
+    font-size: 40px;
+  }
+  .title {
+    text-align: center;
+  }
+  .container{
+    align-content: center;
+    text-align: center;
+  }
+  .article {
+    display: grid;
+    justify-content: center;
+  }
+  h1 {
+    color: rgb(0, 0, 0);
+    font-family: 'calibri';
+    align-content: center;
+    text-align: center;
+  }
+  p {
+    color: black;
+    font-family: 'calibri';
+  }
+  a {
+    color: black;
+    font-family: 'calibri';
+    font-size: 20px;
+    margin: 10px;
+  }
+  ul{
+    list-style-type: none;
+  }
+  body.navbar{
+    background-color: black;
+    color :rgb(126, 167, 121);
+  }
+  a:link { color: #000000; text-decoration: none}
+  a:visited { color: #000000; text-decoration: none}
+  a:hover { color: white; text-decoration: none}
+  a:active { color: #000000; text-decoration: none}
+
+</style>
 <header>
   <divc lass= "navbar">
     <div class="topnav">
@@ -13,9 +93,9 @@
   </div>
 </header>
 <div class="title">
-  <h2>Episodio {{episode.episode}}  {{episode.title}}</h2>
+  <h1>Episodio {{episode.episode}}   {{episode.title}}</h1>
   <div>
-    <p>Temporada {{episode.season}}</p>
+    <h3>Temporada {{episode.season}}</h3>
     <p>Fecha lanzamiento: {{episode.air_date}}</p>
     <p>Personajes</p>
     {%for character in episode.characters%}

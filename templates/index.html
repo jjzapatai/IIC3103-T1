@@ -3,10 +3,93 @@
   <head>
     <meta charset="utf-8">
     <title>Tarea 1</title>
+    <style>
+      html, body { margin:0; padding: 0;}
+      header {
+        position: sticky;
+        top: 0;
+        background-color: black;
+        color:  rgb(126, 167, 121);
+        
+        height: 80px;
+      }
+      header a:link { color: white; text-decoration: none
+      }
+      header a:visited { color: #fffefe; text-decoration: none
+      }
+      header a:hover { color: rgb(126, 167, 121); text-decoration: none
+      }
+      header a:active { color: #fffefe; text-decoration: none
+      }
+      header a {
+        font-size: 12px;
+      }
+      header.navbar{
+        display: flex;
+      }
+      header.topnav{
+        float: left;
+      }
+      header.search{
+        float:right;
+        align-self: right;
+      }
+
+      body {background-color: rgb(126, 167, 121);
+        font-family: 'calibri';}
+
+      .topnav a {
+        text-align: center;
+        padding: 14px 16px;
+        font-size: 40px;
+      }
+      .container {
+        text-align: center;
+        position: relative;
+      }
+      .article {
+        display: grid;
+        justify-content: center;
+      }
+      h1 {
+        color: rgb(0, 0, 0);
+        font-family: 'calibri';
+      }
+      p {
+        color: black;
+        font-family: 'calibri';
+      }
+      a {
+        color: black;
+        font-family: 'calibri';
+        font-size: 20px;
+        margin: 10px;
+      }
+      
+      ul{
+        text-align: center;
+        display: block;
+        list-style-type: none;
+      }
+      li{
+    list-style-position: inside;
+    
+}
+      body.navbar{
+        background-color: black;
+        color :rgb(126, 167, 121);
+      }
+      a:link { color: #000000; text-decoration: none}
+      a:visited { color: #000000; text-decoration: none}
+      a:hover { color: white; text-decoration: none}
+      a:active { color: #000000; text-decoration: none}
+
+    </style>
   </head>
+
   <body>
     <header>
-      <divc lass= "navbar">
+      <div class= "navbar">
         <div class="topnav">
           <a class="active" href="{%url 'index' %}">Home</a>
         </div>
@@ -16,12 +99,13 @@
               <input name="value" type="search" placeholder="Buscar Personaje">
               <button type='submit'> Buscar</button>
             </form>
+          </div>
         </div>
-      </div>
     </header>
-      <div class="title">
+    <div class="container">
+      <div class="article">
         <h1> BREAKING BAD</h1>
-        <div>
+        <div class="temporadas">
           {%for n in temporadas_bb%}
           <ul>
             <li>
@@ -31,9 +115,9 @@
           {% endfor%}
         </div>
       </div>
-      <div class="title">
+      <div class="article">
         <h1> BETTER CALL SAUL</h1>
-        <div>
+        <div class="temporadas">
           {%for n in temporadas_bcs%}
           <ul>
             <li>
@@ -43,5 +127,6 @@
           {% endfor%}
         </div>
       </div>
+    </div>
   </body>
 </html>

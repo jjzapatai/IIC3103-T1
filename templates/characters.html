@@ -1,3 +1,84 @@
+<style>
+  html, body { margin:0; padding: 0;}
+  header {
+    position: sticky;
+    top: 0;
+    background-color: black;
+    color:  rgb(126, 167, 121);
+    
+    height: 80px;
+  }
+  header a:link { color: white; text-decoration: none
+  }
+  header a:visited { color: #fffefe; text-decoration: none
+  }
+  header a:hover { color: rgb(126, 167, 121); text-decoration: none
+  }
+  header a:active { color: #fffefe; text-decoration: none
+  }
+  header a {
+    font-size: 12px;
+  }
+  header.navbar{
+    display: flex;
+  }
+  header.topnav{
+    float: left;
+  }
+  header.search{
+    float:right;
+    align-self: right;
+  }
+
+  body {background-color: rgb(126, 167, 121);
+    font-family: 'calibri';}
+
+  .topnav a {
+    text-align: center;
+    padding: 14px 16px;
+    font-size: 40px;
+  }
+  .title {
+    text-align: center;
+  }
+  .container{
+    text-align: center;
+  }
+  .article {
+    display: grid;
+    justify-content: center;
+  }
+  h1 {
+    color: rgb(0, 0, 0);
+    font-family: 'calibri';
+    align-content: center;
+    text-align: center;
+  }
+  p {
+    color: black;
+    font-family: 'calibri';
+  }
+  a {
+    color: black;
+    font-family: 'calibri';
+    margin: 10px;
+  }
+  ul{
+    list-style-type: none;
+  }
+  li{
+    display: inline;
+  }
+  body.navbar{
+    background-color: black;
+    color :rgb(126, 167, 121);
+  }
+  a:link.t { color: #000000; text-decoration: none}
+  a:visited.t { color: #000000; text-decoration: none}
+  a:hover.t { color: white; text-decoration: none}
+  a:active.t { color: #000000; text-decoration: none}
+
+</style>
 <header>
   <divc lass= "navbar">
     <div class="topnav">
@@ -12,7 +93,7 @@
     </div>
   </div>
 </header>
-<div class="title">
+<div class="container">
   <img src="{{character.img}}" alt="" width="230" height="270">
   <h2>{{character.name}}</h2>
   <div>
@@ -27,25 +108,22 @@
       </li>
     </ul>
     {% endfor%}
-    <p>Temporadas Breaking Bad:</p>
+    <h4>Temporadas Breaking Bad:</h4>
     {%for n in bb_appearance%}
-    <ul>
+    <ul class="t">
       <li>
         <a href="{%url 'episodes_bb' n%}">{{n}}</a>  
       </li>
     </ul>
     {% endfor%}
-    <p>Temporadas Better Call Saul:</p>
+    <h4>Temporadas Better Call Saul:</h4>
     {%for n in bcs_appearance%}
-    <ul>
+    <ul class="t">
       <li>
         <a href="{%url 'episodes_bcs' n%}">{{n}}</a>  
       </li>
     </ul>
     {% endfor%}
-
-    <p>CHAR ID:{{character.char_id}}</p>
-
     <h4>Frases típicas de {{character.name}}:</h4>
     {%for quote in quotes%}
     <ul>
@@ -55,7 +133,4 @@
     </ul>
     {% endfor%}
   </div>
-
-  <button type="button"></button>
-
 </div>
