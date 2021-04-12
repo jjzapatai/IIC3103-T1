@@ -96,7 +96,7 @@
   <h1>Episodio {{episode.episode}}   {{episode.title}}</h1>
   <div>
     <h3>Temporada {{episode.season}}</h3>
-    <p>Fecha lanzamiento: {{episode.air_date}}</p>
+    <p>Fecha lanzamiento: {{episode.air_date|date}}</p>
     <p>Personajes</p>
     {%for character in episode.characters%}
     <ul>

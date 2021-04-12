@@ -69,7 +69,6 @@ def show_episode(request, id):
     if int(episode['episode_id'])==int(id):
       detail = episode
 
-
   ctx ={
     'episode':detail
   }
@@ -77,7 +76,6 @@ def show_episode(request, id):
 
 
 def show_character(request, name):
-  print("obteniendo info de "+ name)
   URL = 'https://tarea-1-breaking-bad.herokuapp.com/api/characters?name='+ name
   data = generate_request(URL)
 
@@ -107,12 +105,12 @@ def show_character(request, name):
 def search_results(request):
   if request.method == 'POST': 
     value = request.POST['value'] 
-  print(value)
+  
   data_characters = []
   
   offset = 0
   while True:
-    URL = 'https://tarea-1-breaking-bad.herokuapp.com/api/characters?limit=10&offset='+ str(offset)
+    URL = 'https://tarea-1-breaking-bad.herokuapp.com/api/characters?name='+str(value)+'&limit=10&offset='+ str(offset)
     data = generate_request(URL)
     if len(data) == 0:
       break
@@ -126,7 +124,7 @@ def search_results(request):
     if value.lower() in char['name'].lower():
         characters.append(char)
   
-  print(characters)
+  
   ctx = {
     'characters':characters
   }
