@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html>
-
   <head>
     <meta charset="utf-8">
     <title>Tarea 1</title>
     <div class="topnav">
       <h2 class="active" href="#home">Home</h2>
     </div>
+    <div class="search">
+      <form method=GET action="{% url 'search_results' %}"> 
+        <input name="value" type="search" placeholder="Buscar Personaje">
+        <button type='submit'> Buscar</button>
+      </form>
+  </div>
   </head>
 
   <body>

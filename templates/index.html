@@ -11,8 +11,11 @@
           <a class="active" href="{%url 'index' %}">Home</a>
         </div>
           <div class="search">
-            <label for="name">Search</label>
-            <input type="text" placeholder="Buscar Personaje" value="" >
+            <form method=POST action="{%url 'search_results' %}"> 
+              {% csrf_token %}
+              <input name="value" type="search" placeholder="Buscar Personaje">
+              <button type='submit'> Buscar</button>
+            </form>
         </div>
       </div>
     </header>

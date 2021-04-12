@@ -69,6 +69,7 @@ def show_episode(request, id):
     if int(episode['episode_id'])==int(id):
       detail = episode
 
+
   ctx ={
     'episode':detail
   }
@@ -92,9 +93,6 @@ def show_character(request, name):
     if q['author'] == name:
       quotes.append(q)
 
-  print(quotes)
-  print(len(quotes))
-
   bb = [int(i) for i in detail['appearance']]
   bcs = [int(i) for i in detail['better_call_saul_appearance']]
 
@@ -106,3 +104,30 @@ def show_character(request, name):
   }
   return render(request, 'characters.html', ctx)
 
+def search_results(request):
+  if request.method == 'POST': 
+    value = request.POST['value'] 
+  print(value)
+  data_characters = []
+  
+  offset = 0
+  while True:
+    URL = 'https://tarea-1-breaking-bad.herokuapp.com/api/characters?limit=10&offset='+ str(offset)
+    data = generate_request(URL)
+    if len(data) == 0:
+      break
+    else:
+      for p in data:
+        data_characters.append(p)
+      offset += 10
+  
+  characters = []
+  for char in data_characters:
+    if value.lower() in char['name'].lower():
+        characters.append(char)
+  
+  print(characters)
+  ctx = {
+    'characters':characters
+  }
+  return render(request, 'show_search.html', ctx)

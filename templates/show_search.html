@@ -1,0 +1,21 @@
+<divc lass= "navbar">
+  <div class="topnav">
+    <a class="active" href="{%url 'index' %}">Home</a>
+  </div>
+    <div class="search">
+      <label for="name">Search</label>
+      <input type="text" placeholder="Buscar Personaje" value="" >
+  </div>
+</div>
+<div class="title">
+  <h2> Resultados de la búsqueda</h2>
+  <div>
+    {%for character in characters%}
+    <ul>
+      <li>
+        <a href="{%url 'show_character' character.name%}">{{character.name}}</a>
+      </li>
+    </ul>
+    {% endfor%}
+  </div>
+</div>
